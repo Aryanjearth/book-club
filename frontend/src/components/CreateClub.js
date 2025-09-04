@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import background1 from '../assets/background1.jpg';
 import { useNavigate } from 'react-router-dom';  // Import useNavigate hook
 import axios from 'axios';
-const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+const API_BASE_URL = process.env.url;
 
 // Styled Components
 const Container = styled.div`

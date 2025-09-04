@@ -120,7 +120,7 @@ const GridBox = styled.button`
     border-color: darkred;
   }
 `;
-const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+const API_BASE_URL = process.env.url;
 
 const ClubLogo = styled.img`
   width: 80%;

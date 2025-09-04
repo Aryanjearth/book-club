@@ -160,7 +160,7 @@ const ErrorMessage = styled.p`
   margin-top: 10px;
   font-weight: bold;
 `;
-const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+const API_BASE_URL = process.env.url;
 
 const SearchPage = () => {
   const [query, setQuery] = useState('');
@@ -175,7 +175,7 @@ const SearchPage = () => {
     setError(null);
 
     try {
-      const response = await axios.post('${API_BASE_URL}/fetchBook/allBooks', { link: query });
+      const response = await axios.post(`${API_BASE_URL}/fetchBook/allBooks`, { link: query });
       setBooks(response.data);
     } catch (err) {
       setError('Failed to fetch books. Please try again.');

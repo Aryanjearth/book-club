@@ -38,7 +38,7 @@ const BookCard = styled.div`
     margin-bottom: 10px;
   }
 `;
-const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+const API_BASE_URL = process.env.url;
 
 const FavoriteBooks = ({ favoriteBooks }) => {
   return (
