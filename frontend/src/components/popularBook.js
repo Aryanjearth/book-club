@@ -61,7 +61,7 @@ const BookCover = styled.img`
   border-radius: 8px;
   margin-bottom: 15px;
 `;
-const API_BASE_URL = process.env.url;
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 const PopularBooksPage = () => {
   const [popularBooks, setPopularBooks] = useState([]);

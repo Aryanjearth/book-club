@@ -76,7 +76,7 @@ const JoinButton = styled.button`
     background-color: #b22222;
   }
 `;
-const API_BASE_URL = process.env.url;
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 const JoinClubPage = () => {
   const [clubs, setClubs] = useState([]);

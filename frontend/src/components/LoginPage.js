@@ -141,7 +141,7 @@ const CloseIcon = styled.div`
 `;
 
 
-const API_BASE_URL = process.env.url;
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 const LoginPage = () => {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -202,7 +202,7 @@ const LoginPage = () => {
       return;
     }
 
-    const url = `${API_BASE_URL}/book_worms/api/v1/auth/signup`;
+    const url = `${API_BASE_URL}/book_worms/api/v1/auth/signin`;
     const credentials = { username: fullName, email, password };
 
     try {

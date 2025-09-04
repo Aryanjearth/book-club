@@ -160,7 +160,7 @@ const ErrorMessage = styled.p`
   margin-top: 10px;
   font-weight: bold;
 `;
-const API_BASE_URL = process.env.url;
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 const SearchPage = () => {
   const [query, setQuery] = useState('');
