@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 const BlogContainer = styled.div`
   padding: 80px 20px;
@@ -158,7 +159,7 @@ const Blog = () => {
 
     try {
       const response = await axios.post(
-        'http://localhost:8888/book_worms/api/v1/auth/getAllBlogs',
+        `${API_BASE_URL}/book_worms/api/v1/auth/getAllBlogs`,
         { originalCreatorId: userId }
       );
       setPosts(response.data.data || []);
@@ -183,7 +184,7 @@ const Blog = () => {
     try {
       // Send search query to fetch posts based on Title
       const response = await axios.post(
-        'http://localhost:8888/book_worms/api/v1/auth/searchedBlogs',
+        `${API_BASE_URL}/book_worms/api/v1/auth/searchedBlogs`,
         { Title: searchQuery } // Send search query
       );
   
@@ -220,7 +221,7 @@ const Blog = () => {
   const handleDeletePost = async (userId, blogId) => {
     try {
       const response = await axios.post(
-        'http://localhost:8888/book_worms/api/v1/auth/deleteBlogs',
+        `${API_BASE_URL}/book_worms/api/v1/auth/deleteBlogs`,
         { userId, blogId }  // Send both userId and blogId to the backend
       );
 
@@ -258,7 +259,7 @@ const Blog = () => {
 
     try {
       const response = await axios.post(
-        'http://localhost:8888/book_worms/api/v1/auth/blogCreate',
+        `${API_BASE_URL}/book_worms/api/v1/auth/blogCreate`,
         { ...newPost, originalCreatorId: userId }
       );
 

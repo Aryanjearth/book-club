@@ -160,6 +160,7 @@ const ErrorMessage = styled.p`
   margin-top: 10px;
   font-weight: bold;
 `;
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 const SearchPage = () => {
   const [query, setQuery] = useState('');
@@ -174,7 +175,7 @@ const SearchPage = () => {
     setError(null);
 
     try {
-      const response = await axios.post('http://localhost:8888/fetchBook/allBooks', { link: query });
+      const response = await axios.post('${API_BASE_URL}/fetchBook/allBooks', { link: query });
       setBooks(response.data);
     } catch (err) {
       setError('Failed to fetch books. Please try again.');
@@ -198,7 +199,7 @@ const SearchPage = () => {
     };
     console.log(bookData);
     try {
-      const response = await axios.post('http://localhost:8888/book_worms/api/v1/auth/favorites', bookData);
+      const response = await axios.post(`${API_BASE_URL}/book_worms/api/v1/auth/favorites`, bookData);
       if (response.status === 201) { // Success response
         const data = response.data;
         localStorage.setItem('userData', JSON.stringify(data));

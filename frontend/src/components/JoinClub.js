@@ -76,6 +76,7 @@ const JoinButton = styled.button`
     background-color: #b22222;
   }
 `;
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 const JoinClubPage = () => {
   const [clubs, setClubs] = useState([]);
@@ -92,7 +93,7 @@ const JoinClubPage = () => {
 
       try {
         const response = await axios.post(
-          'http://localhost:8888/book_worms/api/v1/auth/club_create/getAllClubs',
+          `${API_BASE_URL}/book_worms/api/v1/auth/club_create/getAllClubs`,
           { userId }
         );
         setClubs(response.data.data || []); // Access 'data' property in the response
@@ -115,7 +116,7 @@ const JoinClubPage = () => {
 
     try {
       const response = await axios.post(
-        'http://localhost:8888/book_worms/api/v1/auth/joinClub',
+        `${API_BASE_URL}/book_worms/api/v1/auth/joinClub`,
         { userId, clubId }
       );
       alert(response.data.message || 'Successfully joined the club!');

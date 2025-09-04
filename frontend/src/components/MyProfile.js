@@ -111,6 +111,7 @@ const FavoriteBook = styled.div`
     }
   }
 `;
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 const SidebarLink = styled(Link)`
   color: white;
@@ -223,7 +224,7 @@ const MyProfile = () => {
       const userId = localStorage.getItem('userId');
       const dataToSend = { userId }; // Prepare data to send
   
-      const response = await axios.post('http://localhost:8888/book_worms/api/v1/auth/getReadBooks', dataToSend);
+      const response = await axios.post(`${API_BASE_URL}/book_worms/api/v1/auth/getReadBooks`, dataToSend);
   
       if (!response.data.success) {
         alert(response.data.message); // Alert the user if the response isn't successful
@@ -259,7 +260,7 @@ const MyProfile = () => {
     };
   
     try {
-      const response = await axios.post('http://localhost:8888/book_worms/api/v1/auth/read-books', dataToSend, {
+      const response = await axios.post(`${API_BASE_URL}/book_worms/api/v1/auth/read-books`, dataToSend, {
         headers: {
           'Content-Type': 'application/json',
         },
@@ -313,7 +314,7 @@ const MyProfile = () => {
     };
     console.log(dataToSend)
     try {
-      const response = await axios.post('http://localhost:8888/book_worms/api/v1/auth/deleteClubs', dataToSend, {
+      const response = await axios.post(`${API_BASE_URL}/book_worms/api/v1/auth/deleteClubs`, dataToSend, {
         headers: {
           'Content-Type': 'application/json',
         },
@@ -339,12 +340,12 @@ const MyProfile = () => {
       let response;
       if (username === "admin") {
         response = await axios.post(
-          'http://localhost:8888/book_worms/api/v1/auth/club_create/getAllClubs',
+          `${API_BASE_URL}/book_worms/api/v1/auth/club_create/getAllClubs`,
           dataToSend
         );
       } else {
         response = await axios.post(
-          'http://localhost:8888/book_worms/api/v1/auth/club_create/getClubs',
+          `${API_BASE_URL}/book_worms/api/v1/auth/club_create/getClubs`,
           dataToSend
         );
       }
@@ -378,7 +379,7 @@ const MyProfile = () => {
 
     setErrorFavorites(null); // Reset error message
     try {
-      const response = await axios.post('http://localhost:8888/book_worms/api/v1/auth/getFavorites',dataToSend);
+      const response = await axios.post(`${API_BASE_URL}/book_worms/api/v1/auth/getFavorites`,dataToSend);
       if (!response.data.success) {
         alert(response.data.message);
       }
@@ -417,7 +418,7 @@ const MyProfile = () => {
     };
 
     try {
-      const response = await axios.post('http://localhost:8888/book_worms/api/v1/auth/deleteFavorite', dataToSend, {
+      const response = await axios.post(`${API_BASE_URL}/book_worms/api/v1/auth/deleteFavorite`, dataToSend, {
         headers: {
           'Content-Type': 'application/json',
         },

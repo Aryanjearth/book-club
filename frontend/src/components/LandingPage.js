@@ -13,6 +13,7 @@ const LandingPageContainer = styled.section`
   overflow: hidden;
   font-family: 'Georgia', 'Times New Roman', serif;
 `;
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 const BackgroundVideo = styled.video`
   position: absolute;

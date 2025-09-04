@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import background1 from '../assets/background1.jpg';
 import { useNavigate } from 'react-router-dom';  // Import useNavigate hook
 import axios from 'axios';
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 // Styled Components
 const Container = styled.div`
@@ -143,7 +144,7 @@ function CreateClub() {
     try {
       // Send POST request to the backend
       const response = await axios.post(
-        'http://localhost:8888/book_worms/api/v1/auth/club_create',
+        `${API_BASE_URL}/book_worms/api/v1/auth/club_create`,
         dataToSend
       );
 
