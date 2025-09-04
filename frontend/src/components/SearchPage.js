@@ -175,7 +175,7 @@ const SearchPage = () => {
     setError(null);
 
     try {
-      const response = await axios.get(`${API_BASE_URL}/fetchBook/allBooks`, { link: query });
+      const response = await axios.post('${API_BASE_URL}/fetchBook/allBooks', { link: query });
       setBooks(response.data);
     } catch (err) {
       setError('Failed to fetch books. Please try again.');
