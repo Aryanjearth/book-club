@@ -168,7 +168,7 @@ const LoginPage = () => {
   };
 
   const handleLogin = async () => {
-    const url = `${API_BASE_URL}/book_worms/api/v1/auth/signin`;
+    var url = `${API_BASE_URL}/book_worms/api/v1/auth/signin`;
     const credentials = { email, password };
 
     try {
@@ -202,7 +202,7 @@ const LoginPage = () => {
       return;
     }
 
-    const url = `${API_BASE_URL}/book_worms/api/v1/auth/signin`;
+    var url = `${API_BASE_URL}/book_worms/api/v1/auth/signup`;
     const credentials = { username: fullName, email, password };
 
     try {
